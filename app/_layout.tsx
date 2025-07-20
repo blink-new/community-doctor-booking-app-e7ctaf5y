@@ -1,18 +1,16 @@
-import { useEffect } from 'react';
-import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import { useFrameworkReady } from '@/hooks/useFrameworkReady';
+import { Stack } from 'expo-router'
+import { StatusBar } from 'expo-status-bar'
+import '../global.css'
 
 export default function RootLayout() {
-  useFrameworkReady();
-
   return (
     <>
+      <StatusBar style="dark" backgroundColor="#F8FAFC" />
       <Stack screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="index" />
-        <Stack.Screen name="+not-found" />
+        <Stack.Screen name="(tabs)" />
+        <Stack.Screen name="doctor/[id]" options={{ presentation: 'modal' }} />
+        <Stack.Screen name="booking/[id]" options={{ presentation: 'modal' }} />
       </Stack>
-      <StatusBar style="auto" />
     </>
-  );
+  )
 }
